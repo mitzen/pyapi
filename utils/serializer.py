@@ -1,12 +1,11 @@
 import json
 from types import SimpleNamespace
+from typing import TypeVar, Type
+
+T = TypeVar("T")
 
 class Serializer():
-    def __init__(self) -> None:
-        pass
-
+    
     @staticmethod
-    def json_to_object(data: str) -> any: 
+    def json_to_object(data: str, returnInstance: Type[T]) -> T: 
         return json.loads(data, object_hook=lambda d: SimpleNamespace(**d))
-
-        

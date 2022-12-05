@@ -9,8 +9,8 @@ model = Employee()
 
 class TodoSimple(Resource):
 
-    def get(self):
-        d = Serializer.json_to_object(request.data)
+    def get(self, ):
+        d = Serializer.json_to_object(request.data, Employee)
         return jsonify("ok")
 
     def put(self, todo_id: Employee):
